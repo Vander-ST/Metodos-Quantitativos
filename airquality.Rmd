@@ -1,0 +1,93 @@
+---
+title: "airquality"
+author: "Amanda , Vander, Gabriel"
+date: '2022-11-07'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+airquality
+```
+
+
+```{r}
+airquality <- na.omit(airquality)
+agrupamento_airquality<- kmeans(airquality[2:4],centers = 2) 
+agrupamento_airquality
+```
+
+
+```{r}
+agrupamento_airquality_o<-kmeans(airquality[2:4], centers = 10, iter.max = 10, nstart = 1)
+agrupamento_airquality_o
+```
+
+```{r}
+agrupamento_airquality_o$centers # são os pontos que se tornaram centroides
+```
+
+```{r}
+agrupamento_airquality_o$size # tamanho de cada grupo (numero de pontos)
+```
+
+
+```{r}
+agrupamento_airquality_o$cluster # vetor de cluster
+```
+
+
+```{r}
+agrupamento_airquality_o$membership # são os ítens que fazem parte da análise
+```
+
+#criar tabela de decisão
+
+```{r}
+table(airquality$Temp,agrupamento_airquality$cluster) 
+```
+
+```{r}
+agrupamento_airquality_o$iter # o número de iterações(repetições) realizadas.
+```
+
+```{r}
+agrupamento_airquality_o$withinerror # o valor da função objetivo - para especialistas.
+```
+
+```{r}
+agrupamento_airquality_o$call # a função preenchida
+```
+
+```{r}
+agrupamento_airquality_o$totss # A soma total dos quadrados.
+```
+
+```{r}
+agrupamento_airquality_o$tot.withinss # Soma dos quadrados total dentro do cluster, ou seja, soma (dentro).
+```
+
+```{r}
+agrupamento_airquality_o$betweenss # A soma dos quadrados entre clusters, ou seja, totss-tot.dentro
+```
+
+```{r}
+agrupamento_airquality_o$ifault # integer: indicador de um possível problema de algoritmo - para especialistas.
+```
+
+#criar gráfico de dispersão
+```{r}
+plot(airquality[2:4],col = agrupamento_airquality$cluster) 
+```
+
+#consolida tabela
+
+```{r}
+tabela_airquality<- cbind(airquality, agrupamento_airquality$cluster)
+tabela_airquality
+```
+

@@ -1,0 +1,102 @@
+---
+title: "mtcars"
+author: "Amanda , Vander, Gabriel"
+date: '2022-11-07'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+mtcars
+```
+
+
+```{r}
+agrupamento_mtcars<- kmeans(mtcars[1:2],centers = 2) 
+agrupamento_mtcars
+```
+
+
+```{r}
+agrupamento_mtcars_o<-kmeans(mtcars[1:7], centers = 10, iter.max = 10, nstart = 1)
+agrupamento_mtcars_o
+```
+
+
+```{r}
+agrupamento_mtcars_o$centers
+```
+
+
+```{r}
+agrupamento_mtcars_o$size
+```
+
+
+```{r}
+agrupamento_mtcars_o$cluster
+```
+
+
+```{r}
+agrupamento_mtcars_o$membership
+```
+
+
+```{r}
+agrupamento_mtcars_o$iter
+```
+
+
+```{r}
+agrupamento_mtcars_o$withinerror
+```
+
+
+```{r}
+agrupamento_mtcars_o$call
+```
+
+
+```{r}
+agrupamento_mtcars_o$totss
+```
+
+
+```{r}
+agrupamento_mtcars_o$tot.withinss
+```
+
+
+```{r}
+agrupamento_mtcars_o$betweenss
+```
+
+
+```{r}
+agrupamento_mtcars_o$ifault
+```
+
+#criar tabela de decisão
+```{r}
+table(mtcars$mpg,agrupamento_mtcars$cluster)
+```
+
+#criar gráfico de dispersão
+```{r}
+plot(mtcars[1:2],col = agrupamento_mtcars$cluster) 
+```
+
+#consolida tabela
+```{r}
+tabela_mtcars<- cbind(mtcars, agrupamento_mtcars$cluster)
+tabela_mtcars
+```
+
+
+```{r}
+```
+
