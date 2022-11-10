@@ -9,9 +9,8 @@ library(tidyverse)
 #A base de dados escolhida foi a Titanic. Essa base de dados é referente ao
 #naufrágio e mostra os dados dos passageiros do navio. Como já havíamos explorado
 #essa base de dados preferimos utilizá-la para obter talvez outros insights sobre
-#esses dados. Os dados a seguir tratam sobre a sobrevivência, classe, Sexo, Idade, 
-#quantidade de filhos no navio, quantidade de parentes no navio, o porto de embarque 
-#e o preço pago por ticket de cada indivíduo a bordo. 
+#esses dados. Os dados a seguir tratam sobre a sobrevivência, classe, Sexo, Idade 
+#e frequência da situação de cada grupo de indivíduos a bordo. 
 
 titanic <- as.data.frame(Titanic)
 titanic$Class <- as.integer(titanic$Class)#Transformando string em inteiro
